@@ -17,15 +17,17 @@ function Main() {
           setCity('');
         };
   return (
-<main className="relative flex flex-col h-screen overflow-hidden">
-  <video autoPlay loop muted className="absolute z-10 w-auto min-w-full min-h-full max-w-none">
-    <source src={Video} type="video/mp4" />
-  </video>
-  <div className='absolute bg-black/50 w-full h-full top-0 left-0 z-20'></div>
+  <div>
+    <div className="w-full">
+      <video autoPlay muted loop className='w-screen h-screen fixed object-cover top-0 left-0 z-[-1]'>
+        <source src={Video} type="video/mp4" />
+      </video>
+    </div>
+    <div className='relative h-100'>
     <Sidebar fetchWeather={fetchWeather} setCity={setCity}/>
     {!data ? "" : <Weather data={data}/>}
-</main>
-
+    </div>
+  </div>
   )
 }
 

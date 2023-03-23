@@ -5,20 +5,16 @@ import {BsWind, BsCloudsFill, BsFillSunFill} from 'react-icons/bs';
 const Weather =({data}) => {
   let uv = data.current.uv;
   return (
-    <div className='relative z-20 text-white w-full font-light flex flex-col items-center justify-center py-4 px-2'>
-      <div className='flex justify-center items-center flex-col mb-4 w-full rounded-md bg-black/70 lg:flex-row p-6 lg:w-3/4'>
+    <div className='relative z-20 text-white w-full font-light flex flex-col items-center justify-center px-2'>
+      <div className='flex justify-center items-center flex-col mb-2 w-full rounded-md lg:flex-row p-6'>
         <div className='flex flex-col justify-center items-center'>
-        <h3 className='text-3xl my-2 lg:text-5xl'>{data.location.name}</h3>
-        <h1 className='text-6xl lg:text-8xl'>{data.current.temp_c}&deg;C</h1>
-        <h4 className='m-2 text-lg lg:text-2xl'>{data.current.condition.text}</h4>
-        </div>
-        <div>
-        <img className='h-auto w-20 lg:w-56' src={data.current.condition.icon} alt="Weather Condition" />
+        <h3 className='text-3xl my-2 lg:text-5xl xl:text-6xl'>{data.location.name}</h3>
+        <h1 className='text-6xl lg:text-8xl xl:text-9xl'>{data.current.temp_c}&deg;C</h1>
+        <h4 className='m-2 text-lg lg:text-2xl xl:text-3xl'>{data.current.condition.text}</h4>
         </div>
       </div>
 
-
-        <div className='w-full grid grid-cols-2 text-light gap-2 md:gap-4 md:w-3/4'>
+        <div className='w-full grid grid-cols-2 text-light gap-2'>
         <div className='flex flex-col justify-center items-center rounded-md bg-black/70 px-4 py-10'>
           <GiGroupedDrops size={30}/>
           <h5 className='m-2 font-bold lg:text-xl'>Humidity</h5>
