@@ -1,20 +1,29 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Video from '../assets/video.mp4'
-import {BsSearch} from 'react-icons/bs';
-import {AiOutlineMenu} from 'react-icons/ai';
+import Sidebar from './Sidebar';
+import Weather from './Weather';
+import axios from 'axios';
 
 
 function Main() {
+    const [data, setData] = useState(null);
+    const [city, setCity] = useState('');
+    const url = `http://api.weatherapi.com/v1/current.json?key=8bce3ea3263944a8b10175644230803&q=${city}&aqi=no`;
+    const fetchWeather = (e) => {
+          e.preventDefault();
+          axios.get(url).then((response) => {
+            setData(response.data);
+          });
+          setCity('');
+        };
   return (
-<main class="relative flex flex-col h-screen overflow-hidden">
-  <video autoPlay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none">
+<main className="relative flex flex-col h-screen overflow-hidden">
+  <video autoPlay loop muted className="absolute z-10 w-auto min-w-full min-h-full max-w-none">
     <source src={Video} type="video/mp4" />
   </video>
   <div className='absolute bg-black/50 w-full h-full top-0 left-0 z-20'></div>
-
-  <div class="relative z-30 p-5 text-2xl text-white">
-    <AiOutlineMenu className=' cursor-pointer hover:scale-125 duration-300' size={40}/>
-  </div>
+    <Sidebar fetchWeather={fetchWeather} setCity={setCity}/>
+    {!data ? "" : <Weather data={data}/>}
 </main>
 
   )

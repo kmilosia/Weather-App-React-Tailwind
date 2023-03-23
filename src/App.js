@@ -45,27 +45,9 @@
 
 // export default App;
 
-import axios from 'axios';
-import { useState } from 'react';
-import Weather from './components/Weather';
-import Sidebar from './components/Sidebar';
 import Main from './components/Main';
 
-
 function App() {    
-  const [city, setCity] = useState('');
-  const [weather, setWeather] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const url = `http://api.weatherapi.com/v1/current.json?key=8bce3ea3263944a8b10175644230803&q=${city}&aqi=no`;
-  const fetchWeather = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    axios.get(url).then((response) => {
-      setWeather(response.data);
-    });
-    setCity('');
-    setLoading(false);
-  };
   return (   
     <div>
       <Main />
