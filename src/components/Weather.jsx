@@ -12,17 +12,18 @@ import Wind from '../assets/wind.mp4'
 const Weather =({data, setBg}) => {
   let uv = data.current.uv;
   const handleBg = () => {
-    if (data.current.condition.text == "Sunny" || data.current.condition.text == "Clear") {
+    let weatherCondition = data.current.condition.text;
+    if (weatherCondition.toLowerCase().indexOf('sun') !== -1 || weatherCondition.toLowerCase() === "clear") {
       setBg(Sun);
-    }else if(data.current.condition.text == "Overcast" || data.current.condition.text == "Partly cloudy" || data.current.condition.text == "Cloudy"){
+    }else if(weatherCondition.toLowerCase().indexOf('cloud') !== -1 || weatherCondition.toLowerCase() === "overcast"){
       setBg(Clouds);
-    }else if(data.current.condition.text == "Rain" || data.current.condition.text == "Raining" || data.current.condition.text == "Rainy"){
+    }else if(weatherCondition.toLowerCase().indexOf('rain') !== -1){
       setBg(Rain);
-    }else if(data.current.condition.text == "Thunder"){
+    }else if(weatherCondition.toLowerCase().indexOf('thunder') !== -1){
       setBg(Thunder);
-    }else if(data.current.condition.text == "Snowy" || data.current.condition.text == "Snowing"){
+    }else if(weatherCondition.toLowerCase().indexOf('snow') !== -1){
       setBg(Snow)
-    }else if(data.current.condition.text == "Windy"){
+    }else if(weatherCondition.toLowerCase().indexOf('wind') !== -1){
       setBg(Wind);
     }else{
       setBg(Video)
