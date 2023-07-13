@@ -1,6 +1,9 @@
-# Simple React Weather Application
-React web application using Tailwind CSS framework and axios for fetching weather forecast from weatherapi.com .
-##
+# Weather React App
+Weather forecast React application, fetching and displaying the weather data from weatherapi.com.
+## Technologies:
+- React
+- Axios library
+- Tailwind CSS
 
 
 
