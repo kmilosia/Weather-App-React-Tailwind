@@ -4,6 +4,7 @@ Weather forecast React application, fetching and displaying the weather data fro
 - React
 - Axios library
 - Tailwind CSS
+- HTML/CSS
 
 
 
