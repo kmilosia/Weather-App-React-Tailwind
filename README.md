@@ -1,4 +1,4 @@
-# Weather Forecast App
+# Weather Forecast App ReactJS
 Weather forecast application made using React JS library, fetching data using Axios library from weatherapi.com.
 ## Technologies:
 - React JS
